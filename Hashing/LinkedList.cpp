@@ -24,10 +24,10 @@ int LinkedList::indexOf(string word, Node *node) {
         }else if(node->next!= nullptr){
             return indexOf(word,node->next);
         } else{
-            throw "No String Found";
+            return -1;
         }
     }else{
-        throw "No String Found";
+        return -1;
     }
 }
 

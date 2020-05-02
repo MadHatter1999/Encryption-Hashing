@@ -122,33 +122,6 @@ Hashing/fast:
 	$(MAKE) -f CMakeFiles\Hashing.dir\build.make CMakeFiles/Hashing.dir/build
 .PHONY : Hashing/fast
 
-AVL.obj: AVL.cpp.obj
-
-.PHONY : AVL.obj
-
-# target to build an object file
-AVL.cpp.obj:
-	$(MAKE) -f CMakeFiles\Hashing.dir\build.make CMakeFiles/Hashing.dir/AVL.cpp.obj
-.PHONY : AVL.cpp.obj
-
-AVL.i: AVL.cpp.i
-
-.PHONY : AVL.i
-
-# target to preprocess a source file
-AVL.cpp.i:
-	$(MAKE) -f CMakeFiles\Hashing.dir\build.make CMakeFiles/Hashing.dir/AVL.cpp.i
-.PHONY : AVL.cpp.i
-
-AVL.s: AVL.cpp.s
-
-.PHONY : AVL.s
-
-# target to generate assembly for a file
-AVL.cpp.s:
-	$(MAKE) -f CMakeFiles\Hashing.dir\build.make CMakeFiles/Hashing.dir/AVL.cpp.s
-.PHONY : AVL.cpp.s
-
 LinkedList.obj: LinkedList.cpp.obj
 
 .PHONY : LinkedList.obj
@@ -239,9 +212,6 @@ help:
 	@echo ... Hashing
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... AVL.obj
-	@echo ... AVL.i
-	@echo ... AVL.s
 	@echo ... LinkedList.obj
 	@echo ... LinkedList.i
 	@echo ... LinkedList.s

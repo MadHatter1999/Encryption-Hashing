@@ -80,12 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Antho/Desktop/c++_AssignFive/Encryption-Hashing/Hashing/AVL.cpp">
-			<Option target="Hashing"/>
-		</Unit>
-		<Unit filename="C:/Users/Antho/Desktop/c++_AssignFive/Encryption-Hashing/Hashing/AVL.h">
-			<Option target="Hashing"/>
-		</Unit>
 		<Unit filename="C:/Users/Antho/Desktop/c++_AssignFive/Encryption-Hashing/Hashing/LinkedList.cpp">
 			<Option target="Hashing"/>
 		</Unit>

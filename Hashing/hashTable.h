@@ -8,6 +8,7 @@
 #include <iostream>
 #include "LinkedList.h"
 class hashNode{
+
 public:
     int key;
     LinkedList* list;
@@ -28,10 +29,10 @@ public:
 class hashTable {
     hashNode* root;
     int length=0;
+    void add(hashNode* node,int key,string value);
 public:
     hashTable();
 
-    int hash();
 
     void add(int key,string value);
 
