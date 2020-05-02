@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Antho/Desktop/c++_AssignFive/Hashing/LinkedList.h
+string
+C:/Users/Antho/Desktop/c++_AssignFive/Hashing/string
+iostream
+-
+
+C:/Users/Antho/Desktop/c++_AssignFive/Hashing/main.cpp
+iostream
+-
+LinkedList.h
+C:/Users/Antho/Desktop/c++_AssignFive/Hashing/LinkedList.h
+
