@@ -13,13 +13,15 @@ public:
     LinkedList* list;
     hashNode* next;
     hashNode* prev;
-    hashNode(){
+    hashNode(int key){
+        this->key=key;
         this->list = new LinkedList();
         this->next= nullptr;
         this->prev= nullptr;
     }
     ~hashNode(){
         delete(list);
+        delete(next);
     }
 
 };
@@ -28,6 +30,8 @@ class hashTable {
     int length=0;
 public:
     hashTable();
+
+    int hash();
 
     void add(int key,string value);
 

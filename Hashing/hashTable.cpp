@@ -12,7 +12,7 @@ hashTable::hashTable() {
 void hashTable::add(int key,string value) {
     if(this->root== nullptr){
         root=new hashNode();
-
+        root->list->add(value);
     }else{
 
     }

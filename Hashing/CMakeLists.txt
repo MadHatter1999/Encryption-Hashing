@@ -3,4 +3,4 @@ project(Hashing)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Hashing main.cpp hashTable.cpp hashTable.h LinkedList.cpp LinkedList.h)
+add_executable(Hashing main.cpp hashTable.cpp hashTable.h LinkedList.cpp LinkedList.h AVL.cpp AVL.h)

@@ -23,6 +23,7 @@ public:
         this->prev= nullptr;
 
     }
+
     ~Node(){
         delete(this->next);
     }
