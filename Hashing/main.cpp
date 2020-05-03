@@ -6,11 +6,28 @@
 #include <algorithm>
 #include <regex>
 #include "LinkedList.h"
+#include "hashTable.h"
+
 using namespace std;
 
-#define SIZE 29;
+#define SIZE 29
+#define smallSIZE 11
 
+void printToScreen(string msg){
+    cout<<msg<<endl;
+}
 
+/// This changes a string to all lower case
+/// \param word
+/// \returns The word that is put in but in lower case
+string toLowerCase(string word){
+    int length=word.length();
+    string tmp;
+    for (int i = 0; i < length; ++i) {
+        tmp.push_back(tolower(word[i]));
+    }
+    return tmp;
+}
 
 /// Gets Dicionary
 /// \return dictionary
@@ -105,26 +122,35 @@ void preload(LinkedList &dic, LinkedList &data,string dir){
     getData(dir,data,dir);
 }
 
-int hash(string value){
-    int i, sum, address;
 
-    sum = 0;
-    int len = value.length();
-    for (i = 0; i < len; i++){
-        sum += (int)value[i]; // cast each character of the string as int to get ascii value
-    }
-    // the modulus, or remainder, of integer division gives a result between 0 and SIZE-1, perfect for an index
-    address = sum % SIZE;
-
-    return address;
-
-}
 
 /// This will take a sample text and check for spelling errors
 /// \param dic dictionary
 /// \param data Sample text for comparing
-void SpellChecker(LinkedList &dic, LinkedList &data){
+hashTable* SpellChecker(LinkedList &dic, LinkedList &data){
+    //Initiating the HashTable and assigning it to a pointer
+    hashTable *hashTbl= new hashTable(SIZE,&dic);
+    //LinkedList for errors words
+    LinkedList* errors=new LinkedList();
+  //  now we will loop throw the sample text to get
+    for (int j = 0; j < data.getLength(); ++j) {
 
+        string word=toLowerCase(data.at(j,data.root));
+        //If word isnt nothing
+        if(word!=""){
+            if(hashTbl->search(word)){
+                //If Word is in the list
+                continue;
+            } else{
+                //If the word is not in the
+                errors.
+            }
+
+        }
+    }
+
+
+    return new hashTable(smallSIZE,errors);
 }
 
 /// Main driver

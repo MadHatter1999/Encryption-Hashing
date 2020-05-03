@@ -27,20 +27,26 @@ public:
 
 };
 class hashTable {
-    hashNode* root;
+    LinkedList* arr= nullptr;
     int length=0;
-    void add(hashNode* node,int key,string value);
 public:
-    hashTable();
-
-
+    hashTable(const int num,LinkedList* data);
+    int hashfn(string value);
     void add(int key,string value);
 
     void remove(int key);
 
-    LinkedList* search(int key);
+    LinkedList *at(int key);
+
+    bool search(string value);
+
+
+
+    int getLength();
 
     ~hashTable();
+
+
 };
 
 

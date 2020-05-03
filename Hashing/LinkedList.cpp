@@ -8,7 +8,7 @@
 //Constructor
 LinkedList::LinkedList(string word) {
     this->root=new Node(length, word);
-    this->length++;
+    this->length=1;
 }
 
 LinkedList::LinkedList() {
@@ -41,7 +41,7 @@ string LinkedList::at(int index, Node *node) {
             }
         }
     } else{
-        throw "Item Not Found";
+        return "";
     }
 }
 

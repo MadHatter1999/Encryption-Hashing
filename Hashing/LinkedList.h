@@ -33,7 +33,7 @@ class LinkedList {
     int length=0;
 public:
 
-    Node* root;
+    Node* root= nullptr;
     //Functions
     LinkedList(string word);
 
