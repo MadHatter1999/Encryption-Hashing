@@ -1,3 +1,7 @@
+//
+// Created by Anthony Healy
+// This is an Spell check using a custom hash table class
+//
 #include <iostream>
 #include <string>
 #include <vector>
@@ -127,30 +131,34 @@ void preload(LinkedList &dic, LinkedList &data,string dir){
 /// This will take a sample text and check for spelling errors
 /// \param dic dictionary
 /// \param data Sample text for comparing
-hashTable* SpellChecker(LinkedList &dic, LinkedList &data){
+void SpellChecker(LinkedList &dic, LinkedList &data){
     //Initiating the HashTable and assigning it to a pointer
     hashTable *hashTbl= new hashTable(SIZE,&dic);
+
     //LinkedList for errors words
     LinkedList* errors=new LinkedList();
+
   //  now we will loop throw the sample text to get
     for (int j = 0; j < data.getLength(); ++j) {
-
+        //This is the active word
         string word=toLowerCase(data.at(j,data.root));
         //If word isnt nothing
         if(word!=""){
             if(hashTbl->search(word)){
                 //If Word is in the list
-                continue;
             } else{
                 //If the word is not in the
-                errors.
+                errors->add(word);
+                printToScreen(word+"<- Spelt Incorrect");
             }
-
         }
     }
 
-
-    return new hashTable(smallSIZE,errors);
+    //Storing the HashTable for Errors
+    printToScreen("");
+    hashTable *ErrorTBL= new hashTable(smallSIZE,errors);
+    printToScreen("Incorrect Spellings Hash Table:");
+    ErrorTBL->printAll();
 }
 
 /// Main driver
@@ -166,8 +174,6 @@ int main() {
 
     //running spell checker
     SpellChecker(dic,data);
-
-
 
     return 0;
 }

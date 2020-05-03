@@ -7,25 +7,7 @@
 
 #include <iostream>
 #include "LinkedList.h"
-class hashNode{
 
-public:
-    int key;
-    LinkedList* list;
-    hashNode* next;
-    hashNode* prev;
-    hashNode(int key){
-        this->key=key;
-        this->list = new LinkedList();
-        this->next= nullptr;
-        this->prev= nullptr;
-    }
-    ~hashNode(){
-        delete(list);
-        delete(next);
-    }
-
-};
 class hashTable {
     LinkedList* arr= nullptr;
     int length=0;
@@ -40,9 +22,11 @@ public:
 
     bool search(string value);
 
-
-
     int getLength();
+
+    void printIndex(int key);
+
+    void printAll();
 
     ~hashTable();
 

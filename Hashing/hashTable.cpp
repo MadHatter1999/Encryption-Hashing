@@ -1,12 +1,13 @@
 //
-// Created by Antho on 2020-04-28.
+// Created by Anthony on 2020-04-28.
 //
+//This is a Custom Hash Table class
 
 #include "hashTable.h"
 
-
-
-
+/// Constructor
+/// \param num
+/// \param data
 hashTable::hashTable(const int num,LinkedList* data) {
     this->arr= new LinkedList[num];
     length=num;
@@ -16,32 +17,41 @@ hashTable::hashTable(const int num,LinkedList* data) {
         this->add(hashfn(data->at(i,data->root)),data->at(i,data->root));
     }
 }
-
+/// Hash Function
+/// \param value
+/// \return
 int hashTable::hashfn(string value){
-    int i, sum, address;
-
-    sum = 0;
+    int sum=0;
     int len = value.length();
-    for (i = 0; i < len; i++){
-    sum += (int)value[i]; // cast each character of the string as int to get ascii value
+    int address;
+
+    for (int i = 0; i < len; i++){
+        //Converting to ASCII, Then adding it to the sum
+        //Sum could be used as check sums later to validate
+        sum+=(int)value[i];
     }
-    // the modulus, or remainder, of integer division gives a result between 0 and SIZE-1, perfect for an index
-    address = sum % this->length;
-
+    //Using modular division to standardize the sum data to allowed to be more predicable to allow faster usage
+    address = sum%this->length;
     return address;
-
 }
 
-
+/// Adds to the key index
+/// \param key int for index of selected
+/// \param value string for
 void hashTable::add(int key,string value) {
-    //This uses my custom link list class to chain the colisions
+    //This uses my custom link list class to chain the collisions
     arr[key].add(value);
 }
 
+/// Removes list
+/// \param key
 void hashTable::remove(int key) {
     arr[key].root= nullptr;
 }
 
+/// Gets the list at
+/// \param key
+/// \return * to LinkedList at the index selected
 LinkedList* hashTable::at(int key) {
     //Grabbing the List at that index/Key
     LinkedList *li= &arr[key];
@@ -54,6 +64,9 @@ LinkedList* hashTable::at(int key) {
 
 }
 
+/// Searches and finds value in table
+/// \param value
+/// \return true if word is found
 bool hashTable::search(string value) {
     //if you have the key it would be sorted into you can just check that list
     int key=hashfn(value);
@@ -78,13 +91,41 @@ bool hashTable::search(string value) {
     }
 }
 
+///
+/// \returns Length
 int hashTable::getLength() {
     return length;
 }
 
-hashTable::~hashTable() {
-
+/// prints an list of an index
+/// \param key
+void hashTable::printIndex(int key) {
+    LinkedList* li= nullptr;
+    if(key<this->getLength()&&key>=0){
+         li = this->at(key);
+         //checking if not null
+        if(li!= nullptr && li->root!= nullptr  ){
+            cout<<key<<":";
+            li->printAll(li->root);
+        }
+    }
 }
+
+///Prints all
+void hashTable::printAll() {
+    cout<<"Key:Word(s)"<<endl;
+    for (int i = 0; i < this->length; ++i) {
+        printIndex(i);
+    }
+}
+
+hashTable::~hashTable() {
+    delete(this->arr);
+}
+
+
+
+
 
 
 

@@ -1,22 +1,29 @@
 //
 // Created by Anthony Healy on 2020-05-01.
-//  This
+//  This is a linked list class
 //
 
 #include "LinkedList.h"
 
-//Constructor
-LinkedList::LinkedList(string word) {
-    this->root=new Node(length, word);
-    this->length=1;
-}
-
+//constructors
+///Default Constructor
 LinkedList::LinkedList() {
     this->root= nullptr;
     this->length=0;
 }
+
+///
+/// \param word to be added at root
+LinkedList::LinkedList(string word) {
+    this->root=new Node(length, word);
+    this->length=1;
+}
 //Utility functions
 
+/// Finds the index of a word
+/// \param word
+/// \param node
+/// \return if -1 index is not found else returns the index of wanted word
 int LinkedList::indexOf(string word, Node *node) {
     if(node!=nullptr){
         if(node->word==word){
@@ -31,6 +38,10 @@ int LinkedList::indexOf(string word, Node *node) {
     }
 }
 
+/// Returns the string at a certain index
+/// \param index
+/// \param node
+/// \return  string of selected index
 string LinkedList::at(int index, Node *node) {
     if(node !=nullptr){
         if(node->key==index){
@@ -45,8 +56,11 @@ string LinkedList::at(int index, Node *node) {
     }
 }
 
+/// Add string to end of list
+/// \param word
 void LinkedList::add(string word) {
     Node *tmp=new Node(length,word);
+    //This will add to the end of the list
     if(root!=nullptr){
         Node* start=this->root;
         while(start->next!= nullptr){
@@ -60,6 +74,8 @@ void LinkedList::add(string word) {
     length++;
 }
 
+/// removes a certain index
+/// \param index
 void LinkedList::remove(int index) {
     Node* start=this->root;
     while(start->key!=index){
@@ -70,20 +86,27 @@ void LinkedList::remove(int index) {
     length--;
 }
 
+/// Prints all to screen
+/// \param node
 void LinkedList::printAll(Node *node) {
     if(node == nullptr){
         cout<<endl;
     }else{
-        cout<<node->word<<" ";
+        cout<<node->word<<",";
         printAll(node->next);
+
     }
+
 }
 
+///
+/// \return Length of this list
+int LinkedList::getLength() {
+    return this->length;
+}
 LinkedList::~LinkedList() {
     root->next= nullptr;
     delete(root);
 }
 
-int LinkedList::getLength() {
-    return this->length;
-}
+
